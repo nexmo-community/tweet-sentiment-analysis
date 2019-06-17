@@ -62,7 +62,7 @@ app.post('/sendSMS', (req, res) => {
     {
       content: {
         type: 'text',
-        text: `${userName}'s most recent tweet was ${tweet} and the sentiment score is: ${scoreSign}`,
+        text: `${userName}'s most recent tweet was: \"\ ${tweet}\"\ and the sentiment score is: ${scoreSign}`,
       }
     },
     (err, data) => {
