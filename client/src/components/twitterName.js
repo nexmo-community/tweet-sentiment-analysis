@@ -10,6 +10,8 @@ class TwitterName extends React.Component {
   };
     this.sendUserName = this.sendUserName.bind(this);
     this.getTweet = this.getTweet.bind(this);
+    this.resetUserName = this.resetUserName.bind(this);
+
   }
 
   sendUserName = (event) => {
@@ -30,6 +32,12 @@ class TwitterName extends React.Component {
     .then(tweetContent => this.setState({tweetContent}, () => console.log('tweet fetched: ', tweetContent)))
   }
 
+  resetUserName() {
+    this.setState({
+      tweetContent: '',
+      userName: ''
+    })
+  }
   render() {
     return (
       <div>
@@ -47,7 +55,7 @@ class TwitterName extends React.Component {
           find most recent tweet
         </button>
 
-        <SentimentCalculate tweetContent={this.state.tweetContent} userName={this.state.userName}/>
+        <SentimentCalculate tweetContent={this.state.tweetContent} userName={this.state.userName} resetUserName={this.resetUserName}/>
       </div>
     )
   }

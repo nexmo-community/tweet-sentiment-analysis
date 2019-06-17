@@ -12,6 +12,8 @@ class SentimentCalculate extends React.Component {
     };
     this.calculateSentiment = this.calculateSentiment.bind(this);
     this.renderSentimentButton = this.renderSentimentButton.bind(this);
+    this.resetScore = this.resetScore.bind(this);
+
   }
 
   calculateSentiment = (event) => {
@@ -52,6 +54,10 @@ class SentimentCalculate extends React.Component {
     }
   }
 
+resetScore() {
+  this.setState({ score: '' })
+  this.props.resetUserName()
+}
 
   render() {
     return (
@@ -59,7 +65,7 @@ class SentimentCalculate extends React.Component {
       <div className="ui divider"></div>
       {this.showTweet()}
       {this.renderSentimentButton()}
-      <PhoneNumber score={this.state.score} tweetContent={this.props.tweetContent} userName={this.props.userName}/>
+      <PhoneNumber score={this.state.score} tweetContent={this.props.tweetContent} userName={this.props.userName} resetScore={this.resetScore}/>
       </div>
     )
   }

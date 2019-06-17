@@ -27,27 +27,31 @@ class PhoneNumber extends React.Component {
         userName: this.props.userName
       })
     })
-    .then(function(res){ console.log(res) })
+    .then(res => {
+      console.log(res)
+      alert('Your text was sucessfully sent!')
+      this.setState({ number: '' })
+      this.props.resetScore()
+    })
     .catch(function(error){ console.log(error)});
   }
-
 
   renderPhoneInput() {
     if (this.props.score) {
       return (
         <div>
           <div className="ui divider"></div>
-            <div className="ui fluid container">
-              <p>Phone number:</p>
-              <div className="ui input">
-                <input
-                  placeholder="18005554444"
-                  type="tel"
-                  value={this.state.number}
-                  onChange={(e) => this.setState({ number: e.target.value})}
-                />
-                </div>
-              </div>
+          <div className="ui container">
+            <p>Phone number:</p>
+            <div className="ui input">
+              <input
+                placeholder="18005554444"
+                type="tel"
+                value={this.state.number}
+                onChange={(e) => this.setState({ number: e.target.value})}
+              />
+          </div>
+          </div>
         </div>
       );
     }
@@ -58,17 +62,17 @@ class PhoneNumber extends React.Component {
       if (this.state.number.match(/\d/g).length===11) {
         return (
           <div>
-            <button className="ui purple button" onClick={this.sendSMS}>
-            Send the tweet's score to my phone
-            </button>
+          <button className="ui purple button" onClick={this.sendSMS}>
+          Send the tweet's score to my phone
+          </button>
           </div>
         );
       } else {
         return (
           <div>
-            <button className="ui button" >
-            Send the tweet's score to my phone
-            </button>
+          <button className="ui button" >
+          Send the tweet's score to my phone
+          </button>
           </div>
 
         )
@@ -79,8 +83,8 @@ class PhoneNumber extends React.Component {
   render() {
     return (
       <div>
-      {this.renderPhoneInput()}
-      {this.renderSendButton()}
+        {this.renderPhoneInput()}
+        {this.renderSendButton()}
       </div>
     )
   }
