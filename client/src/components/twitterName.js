@@ -42,8 +42,8 @@ class TwitterName extends React.Component {
             onChange={(e) => this.setState({ userName: e.target.value})}
             />
         </div>
-        
-        <button className="ui primary basic button" onClick={this.sendUserName}>
+        <br />
+        <button className="ui blue button" onClick={this.sendUserName}>
           find most recent tweet
         </button>
 

@@ -33,17 +33,22 @@ class SentimentCalculate extends React.Component {
     if (this.props.tweetContent) {
       return (
         <div>
-          <div className="ui divider"></div>
-
-          <button className="ui secondary button" onClick={this.calculateSentiment}>
+          <button className="ui teal button" onClick={this.calculateSentiment}>
           Calculate sentiment score
           </button>
           <div className="ui divider"></div>
-
-          {this.state.score && `Tweet's sentiment score: ${this.state.score}`}
-
+            <strong>{this.state.score && `Tweet's sentiment score: `}</strong>{this.state.score}
         </div>
       );
+    }
+  }
+  showTweet() {
+    if (this.props.tweetContent) {
+      return (
+      <div className="ui raised segment">
+        {this.props.tweetContent}
+      </div>
+    )
     }
   }
 
@@ -52,7 +57,7 @@ class SentimentCalculate extends React.Component {
     return (
       <div>
       <div className="ui divider"></div>
-      {this.props.tweetContent}
+      {this.showTweet()}
       {this.renderSentimentButton()}
       <PhoneNumber score={this.state.score} tweetContent={this.props.tweetContent} userName={this.props.userName}/>
       </div>
