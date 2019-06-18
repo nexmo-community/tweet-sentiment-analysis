@@ -21,6 +21,5 @@ REACT_APP_RAPIDAPI_KEY=*******
 
 In `tweet-sentiment-analysis/private.key`:      
 -----BEGIN PRIVATE KEY-----     
-**************     
+XYZ123****123XYZ    
 -----END PRIVATE KEY-----       
-      
