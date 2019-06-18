@@ -10,8 +10,6 @@ class PhoneNumber extends React.Component {
       number: ''
     };
     this.sendSMS = this.sendSMS.bind(this);
-    this.renderPhoneInput = this.renderPhoneInput.bind(this);
-    this.renderSendButton = this.renderSendButton.bind(this);
   }
 
   sendSMS() {
@@ -29,7 +27,7 @@ class PhoneNumber extends React.Component {
     })
     .then(res => {
       console.log(res)
-      alert('Your text was sucessfully sent!')
+      alert('Your text was successfully sent!')
       this.setState({ number: '' })
       this.props.resetScore()
     })
@@ -41,16 +39,16 @@ class PhoneNumber extends React.Component {
       return (
         <div>
           <div className="ui divider"></div>
-          <div className="ui container">
-            <p>Phone number:</p>
-            <div className="ui input">
-              <input
-                placeholder="18005554444"
-                type="tel"
-                value={this.state.number}
-                onChange={(e) => this.setState({ number: e.target.value})}
-              />
-          </div>
+            <div className="ui container">
+              <p>Phone number:</p>
+              <div className="ui input">
+                <input
+                  placeholder="18005554444"
+                  type="tel"
+                  value={this.state.number}
+                  onChange={(e) => this.setState({ number: e.target.value})}
+                />
+            </div>
           </div>
         </div>
       );
@@ -62,19 +60,18 @@ class PhoneNumber extends React.Component {
       if (this.state.number.match(/\d/g).length===11) {
         return (
           <div>
-          <button className="ui purple button" onClick={this.sendSMS}>
-          Send the tweet's score to my phone
-          </button>
+            <button className="ui purple button" onClick={this.sendSMS}>
+            Send the tweet's score to my phone
+            </button>
           </div>
         );
       } else {
         return (
           <div>
-          <button className="ui button" >
-          Send the tweet's score to my phone
-          </button>
+            <button className="ui button" >
+            Send the tweet's score to my phone
+            </button>
           </div>
-
         )
       }
     }

@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/laurenelee/tweet-sentiment-analysis#readme",
   "dependencies": {
+    "ajax": "0.0.4",
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.0",
     "dotenv": "^8.0.0",

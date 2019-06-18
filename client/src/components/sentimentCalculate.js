@@ -1,6 +1,7 @@
 import React from 'react';
 import unirest from 'unirest';
 import PhoneNumber from './phoneNumber';
+require('dotenv').config()
 
 class SentimentCalculate extends React.Component {
   constructor(props) {
@@ -17,11 +18,11 @@ class SentimentCalculate extends React.Component {
   }
 
   calculateSentiment = (event) => {
-    console.log("tweet", this.props.tweetContent)
+    console.log("calculating sentiment for: ", this.props.tweetContent)
     event.preventDefault();
     unirest.post("https://microsoft-azure-text-analytics-v1.p.rapidapi.com/sentiment")
     .header("X-RapidAPI-Host", "microsoft-azure-text-analytics-v1.p.rapidapi.com")
-    .header("X-RapidAPI-Key", "9e3f240e48mshb9079ed21621b98p17fd28jsn5d5db64d7dd9")
+    .header("X-RapidAPI-Key", process.env.REACT_APP_RAPIDAPI_KEY)
     .header("Content-Type", "application/json")
     .send({"documents":[{"language":"en","id":"string","text":this.props.tweetContent}]})
     .end((result) => {
@@ -44,6 +45,7 @@ class SentimentCalculate extends React.Component {
       );
     }
   }
+
   showTweet() {
     if (this.props.tweetContent) {
       return (
@@ -51,12 +53,12 @@ class SentimentCalculate extends React.Component {
         {this.props.tweetContent}
       </div>
     )
-    }
+  }
   }
 
 resetScore() {
   this.setState({ score: '' })
-  this.props.resetUserName()
+  this.props.resetuserName()
 }
 
   render() {
