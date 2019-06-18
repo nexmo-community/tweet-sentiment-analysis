@@ -26,7 +26,6 @@ class PhoneNumber extends React.Component {
       })
     })
     .then(res => {
-      console.log(res)
       alert('Your text was successfully sent!')
       this.setState({ number: '' })
       this.props.resetScore()
