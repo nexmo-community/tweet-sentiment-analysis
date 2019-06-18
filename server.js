@@ -81,15 +81,3 @@ app.post('/sendSMS', (req, res) => {
     }
   );
 });
-
-
-
-// stream a userName
-// client.stream('statuses/filter', { track: userName },  function(stream) {
-//   stream.on('data', function(tweet) {
-//     console.log("Tweet:", tweet.text);
-//   });
-//   stream.on('error', function(error) {
-//     console.log(error);
-//   });
-// });
