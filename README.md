@@ -1,4 +1,10 @@
-### clone repo:
+# Analyze Twitter Sentiments with Text Analytics API (and a spot of React)
+
+This repository holds the code for Lauren's excellent blog post [Discover Your Twitter Positivity Score with React](https://www.nexmo.com/blog/2019/07/01/discover-your-twitters-positivity-score-with-react-dr)
+
+### Get the code and configure it
+
+- clone this repo to your own machine
 - run `npm install` in root of project && within the `/client` folder  
 - rename `.env-example` files to `.env` in both the root & `/client` folder
 - add a `private.key` file to hold your Nexmo key in root of project  
@@ -29,6 +35,7 @@ In `tweet-sentiment-analysis/client/.env`:
 REACT_APP_RAPIDAPI_KEY=*******         
 ```
 
-### npm run dev
-Runs both server and client simultaneously by running `npm run dev`    
-Open localhost:3000 to see React app's content
+### See the app in action
+
+Run both server and client simultaneously by running `npm run dev`    
+Open `localhost:3000` to see the app and analyze your twitter positivity (or lack of)
